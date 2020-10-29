@@ -151,6 +151,7 @@
                     <br><br>
 
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <input type="hidden" name="id" value="">
                     
                     <button type="submit" name="button">Register</button>
                 </form>

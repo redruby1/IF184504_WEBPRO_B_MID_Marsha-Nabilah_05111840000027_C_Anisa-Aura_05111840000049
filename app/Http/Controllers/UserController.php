@@ -11,16 +11,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use DB;
 
-$id = 5;
-$satu = 1;
-
 class UserController extends Controller
 {
     public function signup(request $request) {
         // print_r($request->input());
 
-        global $id, $satu;
-        $id = $id + $satu;
         $username=$request->input('username');
         $name=$request->input('name');
         $email=$request->input('email');
@@ -28,8 +23,8 @@ class UserController extends Controller
         $alamat=$request->input('alamat');
         $password=$request->input('password');
 
-        $data=DB::insert('insert into admin(id,username,name,email,no_telp,alamat,password) 
-            values(?,?,?,?,?,?,?)',[$id,$username,$name,$email,$telp,$alamat,$password]);
+        $data=DB::insert('insert into admin(username,name,email,no_telp,alamat,password) 
+            values(?,?,?,?,?,?)',[$username,$name,$email,$telp,$alamat,$password]);
 
             if($data) {
                 return redirect('/login');
