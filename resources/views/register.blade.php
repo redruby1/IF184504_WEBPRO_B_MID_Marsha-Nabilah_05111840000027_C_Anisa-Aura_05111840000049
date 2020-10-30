@@ -102,6 +102,11 @@
             form {
                 padding-bottom: 10px;
             }
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
         </style>
     </head>
     <body>
@@ -129,7 +134,7 @@
 
                 <!-- <div class="page-content"> -->
 
-                <form class="" action="{{URL::to('/signup')}}" method="post">
+                <form class="" action="{{URL::to('/register')}}" method="post">
 
                     <!-- <label for="username">Username</label> -->
                     <input type="text" name="username" placeholder="Username" value="">

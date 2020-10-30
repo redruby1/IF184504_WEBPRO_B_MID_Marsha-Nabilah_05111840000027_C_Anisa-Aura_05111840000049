@@ -1,3 +1,5 @@
+@include('includes.navbar')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,14 +10,13 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Radley:ital@1&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
-                color: #fff;
-                font-family: 'Radley', serif;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -45,18 +46,9 @@
                 text-align: center;
             }
 
-            .page-content {
-                outline-color: black;
-                width: 750px;
-                height: 300px;
-                background-color: #696969;
-                border-radius: 30px;
-                vertical-align: auto;
-            }
-
             .title {
-                font-size: 40px;
-                padding-top: 15px;
+                font-size: 35px;
+                padding bottom: 30px;
             }
 
             .links > a {
@@ -69,10 +61,6 @@
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-
             input {
                 width: 500px;
                 height: 30px;
@@ -83,27 +71,13 @@
                 height: 25px;
                 font-size: 14px;
                 vertical-align: middle;
-            }
-
-            label {
-                align-items: left;
-                font-size: 16px;
-            }
-
-            .register {
-                width: fit-content;
-                height: fit-content;
-                stroke-linecap: round;
-                color: coral;
+                background-color: gray;
+                color: white;
             }
 
             form {
                 padding-bottom: 10px;
-            }
-
-            a {
-                text-decoration: none;
-                color: #fff;
+                padding-top: 20px;
             }
         </style>
     </head>
@@ -112,44 +86,39 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{URL::to('/homepage')}}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{URL::to('/login')}}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{URL::to('/register')}}">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
-            <div class="page-content">
-
             <div class="content">
-                <div class="title m-b-md">
-                    Login
-                </div>
-
-                <!-- <div class="register"> -->
-
-                <form class="" action="{{URL::to('/login')}}" method="post">
-
-                    <label for="username">Username</label>
-                    <input type="text" name="username" value="">
+                <div class="title">INSERT NEW BOOK'S DATA</div>
+                <form class="" action="{{URL::to('/book-plus')}}" method="post">
+                    <input type="text" name="nomor" placeholder="Book Number" value="">
                     <br><br>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" value="">
+                    <input type="text" name="judul" placeholder="Title" value="">
+                    <br><br>
+                    <input type="text" name="penulis" placeholder="Author" id="">
+                    <br><br>
+                    <input type="text" name="penerbit" placeholder="Publisher" value="">
+                    <br><br>
+                    <input type="text" name="tahun" placeholder="Year" value="">
+                    <br><br>
+                    <input type="text" name="kategori" placeholder="Category" value="">
+                    <br><br>
+                    <input type="text" name="deskripsi" placeholder="Description" value="">
                     <br><br>
 
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    
-                    <button type="submit" name="button">Login</button>
+
+                    <button type="submit" name="button">Insert</button>
                 </form>
-
-                Create account? <a href="{{URL::to('/register')}}">Register</a>
-
-                <!-- </div> -->
-            </div>
             </div>
         </div>
     </body>

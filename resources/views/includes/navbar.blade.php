@@ -55,7 +55,7 @@
             <header class="header">
                 <!--Navbar -->
                 <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color fixed-top">
-                <a class="navbar-brand extra" href="{{URL::to('/')}}">Perpustakaan</a>
+                <a class="navbar-brand extra">e-Perpustakaan</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -63,7 +63,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link" href="{{URL::to('/homepage')}}">Home
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -71,9 +71,18 @@
                         aria-haspopup="true" aria-expanded="false">Activity
                         </a>
                         <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                        <a class="dropdown-item" href="#">Peminjaman</a>
-                        <a class="dropdown-item" href="#">Pengembalian</a>
-                        <a class="dropdown-item" href="#">Pembayaran Denda</a>
+                        <a class="dropdown-item" href="#">Borrow Book</a>
+                        <a class="dropdown-item" href="#">Return Book</a>
+                        <a class="dropdown-item" href="#">Pay Charge</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Data
+                        </a>
+                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="{{URL::to('/book')}}">Book</a>
+                        <a class="dropdown-item" href="{{URL::to('/peminjam')}}">Borrowers</a>
                         </div>
                     </li>
                     </ul>
@@ -88,14 +97,6 @@
                         <i class="fab fa-google-plus-g"></i>
                         </a>
                     </li>
-                    <form class="navbar-form navbar-left" action="#">
-                        <div class="input-group src">
-                            <input type="text" class="form-control" placeholder="Search Book">
-                            <div class="input-group-btn">
-                            <button type="submit" class="btn btn-secondary bt">Go</button>
-                            </div>
-                        </div>
-                    </form>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Profile
@@ -104,7 +105,7 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-default"
                         aria-labelledby="navbarDropdownMenuLink-333">
                         <a class="dropdown-item" href="#">My Account</a>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{URL::to('/login')}}">Logout</a>
                         </div>
                     </li>
                     </ul>

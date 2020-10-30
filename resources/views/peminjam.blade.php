@@ -36,10 +36,9 @@
                 position: relative;
             }
 
-            .top-right {
+            .top {
                 position: absolute;
-                right: 10px;
-                top: 18px;
+                top: 90px;
             }
 
             .content {
@@ -47,7 +46,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 60px;
             }
 
             .links > a {
@@ -60,8 +59,35 @@
                 text-transform: uppercase;
             }
 
-            p {
-                font-size: 35px;
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+
+            .search {
+                width: 35%;
+                height: 30px;
+                vertical-align: top;
+            }
+
+            span {
+                width: 700px;
+                height: 40px;
+                font-size: 18px;
+                background-color: lightgray;
+                color: black;
+                padding: 10px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            table {
+                position: absolute;
+                top: 160px;
             }
         </style>
     </head>
@@ -81,12 +107,35 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title">
-                    e-Perpustakaan
-                </div>
-                <p>Best partner for Librarian</p>
+            <div class="search top">
+                <form class="navbar-form navbar-left" action="{{URL::to('/peminjam')}}" method="post">
+                    <div class="input-group src">
+                        <input type="text" name="search" class="form-control" placeholder="Search Data">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <div class="input-group-btn">
+                        <button type="submit" class="btn btn-secondary bt">Go</button>
+                        </div>
+                    </div>
+                </form>
             </div>
+
+            <!-- <form action="{{URL::to('/book-plus')}}" method="get">
+                <button type="submit" class="btn btn-secondary tambah">New Borrowed</button>
+            </form> -->
+
+            <table >
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                @foreach ($data as $items)
+                <tr>
+                    <td><span class="a">
+                        <a href="#">{{$items->nama_pembeli}}</a>
+                    </span></td>
+                </tr>
+                @endforeach
+            </table>
         </div>
     </body>
 </html>
